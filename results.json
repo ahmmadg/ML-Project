@@ -1,0 +1,175 @@
+{
+  "team_id": "20236103",
+  "version": 3,
+  "self_reported_holdout_recall": null,
+  "join": {
+    "unmatched_before": 0.078317,
+    "unmatched_zones": [
+      "6th October",
+      "Helwan",
+      "Qalyub"
+    ],
+    "fix": "Mapped legacy pickup_zone and dropoff_zone names to zone_name using zones.csv legacy_name column (6th October -> 6th October District, Helwan -> Helwan District, Qalyub -> Qalyub District), reducing unmatched rows to 0."
+  },
+  "shift": {
+    "field": "distance_km",
+    "day_estimate": "2026-08-27"
+  },
+  "leakage": {
+    "columns_removed": [
+      "actual_trip_time_min",
+      "cancel_reason",
+      "driver_arrival_min",
+      "trip_rating"
+    ],
+    "single_feature_auc": {
+      "actual_trip_time_min": 0.0,
+      "cancel_reason": 1.0,
+      "driver_arrival_min": 0.0,
+      "trip_rating": 0.1526
+    }
+  },
+  "mnar": {
+    "weather_missing_share": 0.040883,
+    "weather_missing_fail_diff": 0.029394,
+    "rating_missing_share": 0.113282,
+    "rating_missing_fail_diff": 0.055277,
+    "interpretation": "informative"
+  },
+  "confounding": {
+    "global_slope": -0.2088,
+    "within_slope": 0.4602,
+    "confounder": "zone_type"
+  },
+  "validation": {
+    "logistic": {
+      "auc": null,
+      "recall_at_15": null,
+      "brier": null,
+      "cost": null
+    },
+    "hgb": {
+      "auc": null,
+      "recall_at_15": null,
+      "brier": null,
+      "cost": null
+    },
+    "knn_fixed": {
+      "k": null,
+      "auc": null,
+      "recall_at_15": null,
+      "brier": null,
+      "cost": null
+    },
+    "local_k": {
+      "auc": null,
+      "recall_at_15": null,
+      "brier": null,
+      "cost": null
+    },
+    "nn": {
+      "auc": null,
+      "recall_at_15": null,
+      "hidden_layers": [],
+      "early_stopping": null
+    }
+  },
+  "knn_scaling": "scaled or unscaled",
+  "investigation": {
+    "recall_before_fix": null,
+    "recall_after_fix": null
+  },
+  "local_k": {
+    "k_selected_on": "train_only",
+    "n_resamples": null,
+    "delta_cost_mean": null,
+    "delta_cost_std": null,
+    "claim": "improves / no difference / worse",
+    "mean_k_by_zone_type": {},
+    "failure_case_trip_ids": [],
+    "failure_reasons": []
+  },
+  "segment_interpretations": {
+    "0": "one sentence of at least 8 words with the numbers that justify it"
+  },
+  "review_disagreements": [
+    {
+      "review_id": null,
+      "nb_pred": "",
+      "svm_pred": "",
+      "why": ""
+    }
+  ],
+  "nn_scaling": {
+    "auc_scaled": null,
+    "auc_unscaled": null
+  },
+  "nn_decision": "deploy or do_not_deploy",
+  "segmentation": {
+    "method": "kmeans",
+    "k": 4,
+    "features": [
+      "log_trips",
+      "mean_fare",
+      "night_share",
+      "cash_share"
+    ],
+    "scaled": true,
+    "silhouette": 0.0,
+    "stability_ari": 0.0,
+    "stability_method": "mean ARI between 5 random seeds"
+  },
+  "decision": {
+    "rules_version": "V4",
+    "policy_name": "",
+    "public_holdout": {
+      "n_requests": 0,
+      "capacity": 0,
+      "budget": 0,
+      "n_actions": 0,
+      "total_cost": 0,
+      "est_benefit": {
+        "no_action": 0,
+        "top_risk_contact": 0,
+        "cost_aware": 0,
+        "proposed": 0
+      }
+    },
+    "segments_analysis": {
+      "validation": "",
+      "policy_without_segments_sim": 0,
+      "policy_with_segments_sim": 0,
+      "difference": 0,
+      "difference_std": 0,
+      "claim": "no_difference",
+      "explanation": "",
+      "segment_table": [
+        {
+          "cluster": 0,
+          "n_requests": 0,
+          "mean_est_loss": 0,
+          "share_actioned": 0
+        }
+      ]
+    },
+    "calibration": {
+      "method": "",
+      "split": "",
+      "brier_before": 0,
+      "brier_after": 0
+    },
+    "uncertainty": {
+      "metric": "recall_at_15",
+      "point": 0,
+      "ci_low": 0,
+      "ci_high": 0,
+      "method": "bootstrap",
+      "n_resamples": 200
+    },
+    "error_by_group": {
+      "group": "pickup_zone_type",
+      "miss_rate": {},
+      "worst_group": ""
+    }
+  }
+}

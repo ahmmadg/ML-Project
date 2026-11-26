@@ -1,0 +1,11 @@
+# Virtual environment & Python cache
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Raw dataset archives and extracted packs (forbidden in submission/public)
+*.zip
+team_data/
+foundations_v03/
+common/
